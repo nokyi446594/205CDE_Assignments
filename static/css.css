@@ -1,0 +1,39 @@
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+html
+{
+  background-color: blue;
+}
+header
+{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 40px 100px;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fff;
+}
+header.logo
+{
+  color: #000;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+.meun
+{
+  position: relative;
+  width: 60px;
+  height: 60px;
+  background: url(./image/menu.png);
+  background-repeat: no-repeat;
+  background-size: 30px;
+  background-position: center;
+  cursor: pointer;
+}
+.log{
+  float: right;
+
+}
