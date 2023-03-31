@@ -1,0 +1,17 @@
+{% extends 'inlayout.html' %} 
+{% block body %}
+    <section class="sign">
+        <figure>
+            <legend>Payment</legend>
+            <p>price : {{price}}</p>
+            <form action="http://localhost:8000/order" method="POST">
+                <p>Payment way</p>
+                <input type="radio" name="way" value="credit card">credit card
+                <input type="radio" name="way" value="other" >other
+                <p>Data of geting the cake</p>
+                <input type="date" name="gdate">
+                <input type="submit" value="buy">
+            </form>
+        </figure>
+    </section>
+{%endblock%}

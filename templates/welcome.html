@@ -1,0 +1,20 @@
+{% extends 'inlayout.html' %} 
+{% block body %}
+        <section class="showcase">
+        <div class="page1" id="welcome">
+            <video src="../static/image/cake.mp4" muted loop autoplay></video>
+            <h1 class="weluser">Wellcome {{guest}} </h1>
+        </div>
+        <div class="page">
+            <span class="welchoice">
+                <a href="./information"><button id="changeInfor" width="50%"><img src="../static/image/changeIn.jpg" class="product"></button> </a>
+                <a href="./list"><button id="myorder" width="50%"><img src="../static/image/order.jpg" class="diy"></button> </a>
+            </span>
+            <span class="welchoice">
+                <a href="./productlist"><button id="product" width="50%"><img src="../static/image/productlogo.jpg" class="product"></button></a>
+                <a href="./booking"><button id="diy" width="50%"><img src="../static/image/design.jpg" class="diy"></button></a>
+            </span>
+
+        </div>
+        </section>
+        {%endblock%}

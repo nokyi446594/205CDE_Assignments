@@ -1,0 +1,24 @@
+{% extends 'layout.html' %} 
+    {% block body %}
+        <section class="showcase">
+            <div class="page1" id="welcome">
+                <video src="../static/image/cake.mp4" muted loop autoplay></video>
+                <span class="text"><h1>Wellcome to Special Cake</h1>
+                <p>You can choose the cake you want from the <a href="./productlist">produce list</a> or <a href="./booking">customize</a> by yourself!</p>
+            </span>
+            </div>
+            <div class="page" id="About us">
+                <h1>About Us</h1>
+                <p>Special Cake is a shop for buying cake.It is found in 2000.We want all the customer can have the cake the want.This website is for customer to book the cake they want.After customers read the product list, they can book the cake after login the acont.We can deliver the cake to the customers in Hong Kong.</p>
+                <p>Tel:23435601</p>
+                <p>Email:Special-cake@gmail.com</p>
+            </div>
+            <div class="page" id="product">
+                <h1>Product</h1>
+                <p>You can choose a cake in our product list or design your own cake</p>
+                <span class="productchoice">
+                    <a href="./productlist"><button id="product" width="50%"><img src="../static/image/productlogo.jpg" class="product"></button> </a>
+                    <a href="./booking"><button id="diy" width="50%"><img src="../static/image/design.jpg" class="diy"></button></a></span>
+            </div>
+        </section>
+{%endblock%}

@@ -1,0 +1,100 @@
+{% extends 'layout.html' %} 
+    {% block body %}
+    <section class="showcase">
+        <div class="productpage">
+            <h1>Product List</h1>
+            <button id="p1"><img src="../static/image/chocolate.jpg" alt="chocolate_Butter cake"></button>
+            <button id="p2"><img src="../static/image/mango mo.jpg" alt="mango Mousse"></button>
+            <button id="p3"><img src="../static/image/chp.jpg" alt="chocolate Pound"></button>
+            <button id="p4"><img src="../static/image/star-angle.jpg" alt="starberry angle cake" ></button>
+        </div>
+    </section>
+    <div class="productbox" id="cBcake" >
+        <img src="../static/image/chocolate.jpg" alt="chocolate_Butter cake" >
+        <div>
+            <p>size : 8"</p>
+            <p>taste : chocolate</p>
+            <p>type : Butter cake</p>
+            <p>decorate : chocolate</p>
+            <p>design : internet</p>
+            <p>Price: $ 260</p>
+            <form action = http://localhost:8000/pay method = "POST"> 
+                <P><input type="text" name="product" value="p2"></P>
+                <input type="submit" value="buy">
+            </form>
+            <button name="quit">Quit</button>
+        </div> 
+        
+    </div>
+    <div class="productbox" id="mMcake">
+        <img src="../static/image/mango mo.jpg" alt="mango Mousse" >
+        <div>
+            <p>size : 8"</p>
+            <p>taste : Mango</p>
+            <p>type : Mousse cake</p>
+            <p>decorate : mango </p>
+            <p>design : internet</p>
+            <p>Price: $ 260</p>
+        </div> 
+        <form action = http://localhost:8000/pay method = "POST">
+            <P><input type="text" name="product" value="p1"></P>
+            <input type="submit" value="buy">
+        </form> 
+        <button name="quit">Quit</button>
+    </div>
+    <div class="productbox" id="cpcake">
+        <img src="../static/image/chp.jpg" alt="chocolate Pound">
+        <div>
+            <p>size : 8"</p>
+            <p>taste : chocolate</p>
+            <p>type : Pound cake</p>
+            <p>decorate : none</p>
+            <p>design : internet</p>
+            <p>Price: $ 250</p>
+        </div>  
+        <form action = http://localhost:8000/pay method = "POST"> 
+            <P><input type="text" name="product" value="p3"></P>
+            <input type="submit" value="buy">
+        </form>
+        <button name="quit">Quit</button>
+    </div>
+    <div class="productbox" id="sacake">
+        <img src="../static/image/star-angle.jpg" alt="strawberry Angel cake">
+        <div>
+            <p>size : 8"</p>
+            <p>taste : strawberry</p>
+            <p>type : Angel cake</p>
+            <p>decorate : strawberry</p>
+            <p>design : internet</p>
+            <p>Price: $ 260</p>
+        </div>  
+        <form action = http://localhost:8000/pay method = "POST">
+            <P><input type="text" name="product" value="p4"></P>
+            <input type="submit" value="buy">
+        </form>
+        <button name="quit">Quit</button>
+    </div>
+    
+    <script>
+        $(document).ready(function(){
+            $(".productbox").hide();
+            $("#p1").click(function(){
+                $("#cBcake").show();
+            });
+            $("#p2").click(function(){
+                $("#mMcake").show();
+            });
+            $("#p3").click(function(){
+                $("#cpcake").show();
+            });
+            $("#p4").click(function(){
+                $("#sacake").show();
+            });
+            $("input[name='product']").hide()
+            $("button[name = 'quit']").click(function(){
+                $(".productbox").hide(); 
+            })
+        });
+
+    </script>
+    {%endblock%}

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<body>
+    <form action="http://localhost:8000/test" method="post">
+            <p>size of the cake:
+                <select name="size" id="size">
+                <option value="6">6"</option>
+                <option value="8">8"</option>
+                <option value="10">10"</option>
+                <option value="12">12"</option>
+                <option value="14">14"</option>
+                <option value="16">16"</option>
+            </select></p>
+            <p>
+                type:
+                <select name="type" id="type">
+                    <option value="Butter cake">Butter Cake</option>
+                    <option value="Pound cake">Pound Cake</option>
+                    <option value="Sponge cake">Sponge Cake</option>
+                    <option value="Genoise cake">Genoise Cake</option>
+                    <option value="Biscuit cake">Biscuit Cake</option>
+                    <option value="Angel Food cake">Angel Food Cake</option>
+                    <option value="Chiffon cake">Chiffon Cake</option>
+                    <option value="Baked Flourless cake">Baked Flourless Cake</option>
+                    <option value="Unbaked Flourless cake">Unbaked Flourless Cake</option>
+                    <option value="Carrot cake">Carrot Cake</option>
+                    <option value="Red Valvet cake">Red Velvet Cake</option>
+                    <option value="Mousse cake">Mousse Cake</option>
+                </select>
+            </p>
+            <p>
+                taste:<br>
+                <span><label><input type="radio" name="taste" value="chocolate">chocolate</label></span>
+                <span><label><input type="radio" name="taste" value="mango">mango</label></span>
+                <span><label><input type="radio" name="taste" value="lenmo">lenmo</label></span>
+                <span><label><input type="radio" name="taste" value="orange">orange</label></span>
+                <span><label><input type="radio" name="taste" value="strawberry">strawberry</label></span>
+            </p>
+            <p>
+                decorate:<br>
+                <input type="checkbox" name="dec" value="chocolate borad" id="chocolate borad" >chocolate borad<input type="text" id="word" name="word" placeholder="word"><br>
+                <input type="checkbox" name="dec" value="mango">mango
+                <input type="checkbox" name="dec" value="orange">orange
+                <input type="checkbox" name="dec" value="lenmo">lenmo
+                <input type="checkbox" name="dec" value="strawberry">strawberry
+            </p>
+            <p>theme:<input type="text" name="theme"></p>
+            <p>
+                design:<br>
+                <input type="radio" name="design" value="Special Cake design">Special Cake design<br>
+                <input type="radio" name="design" value="user design" >upload own design<input type="file" name="design" accept=".png,.jpg">
+            </p>
+            <input type="submit" value="submit" >
+        </from>
+    </body>
+</html>

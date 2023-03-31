@@ -1,0 +1,36 @@
+{% extends 'inlayout.html' %} 
+{% block body %}
+<section class="showcase">
+    <h1>Order list</h1>
+    <fieldset>
+        
+    <legend>>haven't pay</legend>
+    <p id="upay">{{unpay}}</p>
+    <form action="http://localhost:8000/pay " method="get">
+        <input type="text" value= {{unpay}} id="unpay" disabled>
+        <input type="submit" id="pay" value="pay">
+    </form>
+    <form action="http://localhost:8000/finpay " method="POST">
+        <input type="submit" value="clear" id="dele">
+    </form>
+    
+    </fieldset>
+    <fieldset>
+    <legend>order</legend>
+    <P>{{orderlist}}</P>
+    </fieldset>
+</section>
+<script>
+    $(document).ready(function(){
+        $("#unpay").hide()
+        if ( $("#unpay").val() == 'none'){
+            $("#pay").attr("disabled","disabled")}
+        $('#dele').click(function(){
+            $('#upay').text("none")
+            $("#unpay").val("none")
+            $("#pay").attr("disabled","disabled")
+            
+        })
+    });
+</script>
+{%endblock%}

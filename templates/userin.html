@@ -1,0 +1,70 @@
+{% extends 'inlayout.html' %} 
+{% block body %}
+<section class="infor">
+<fieldset >
+<legend>My information</legend>
+<div>
+    <p>Username : {{username}} <button id="cusername">Change</button></p>
+    <p>Password <button id="cpwd">Change</button></p>
+    <p>Telephone:{{tel}}<button id="ctel">Change</button></p>
+    <p>Email: {{email}}<button id="cemail">Change</button></p>
+    <p>Address:{{address}}<button id="caddress">Change</button></p>
+</div>
+<div id="change">
+    <form action="http://localhost:8000/change" method="POST">
+        <p id="user">Username :<input type="text" name="username" ></p>
+        <p id="pwd">Password :<input type="password" name="password" id="1"></p>
+        <p id="repwd">enter the password aagin:<input type="password" id="2nd"></p>
+        <p id="tele">Telephone:<input type="tel" name="tele" id="tele"></p>
+        <p id="email">Email:<input type="email" name="email" ></p>
+        <p id="address">Address:<input type="text" name="address" ></p>
+        <p><input type="submit" value="submit" id="sub"></p>
+    </form>
+</div>
+</fieldset>
+<script>
+    $(document).ready(function(){
+        $("#repwd").hide();
+        $("#user").hide();
+        $("#pwd").hide();
+        $("#tele").hide();
+        $("#email").hide();
+        $("#address").hide();
+        $("#change").hide();
+        $("#cusername").click(function(){
+            $("#cusername").hide();
+            $("#user").show();
+            $("#change").show();
+        });
+        $("#cpwd").click(function(){
+            $("#cpwd").hide();
+            $("#pwd").show();
+            $("#repwd").show();
+            $("#change").show();
+        });
+        $("#ctel").click(function(){
+            $("#ctel").hide();
+            $("#tele").show();
+            $("#change").show();
+        });
+        $("#cemail").click(function(){
+            $("#cemail").hide();
+            $("#email").show();
+            $("#change").show();
+        });
+        $("#caddress").click(function(){
+            $("#caddress").hide();
+            $("#address").show();
+            $("#change").show();
+        });
+        $("input").keyup(function(){
+                if( $('#2nd').val() != $("#1").val()){
+                    $("#sub").attr("disabled","disabled");}                    
+                else{
+                    $("#sub").removeAttr("disabled")
+                };               
+            })
+    });
+</script>
+</section>
+{%endblock%}

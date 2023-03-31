@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content"IE=edge">
+    <meta naame="viewport" content="width=device-width,initial-scale=1.0">
+    <script src="../static/jquery.min.js"></script> 
+    <link rel= "stylesheet" href="../static/main.css">
+    <title>Sign UP</title>
+</head>
+<body>
+    <header class="header">
+        <div>
+            <img src="../static/image/shoplogo.jpg" width="50px" height="50px">
+            <a href="/"><h1 class="logo">Special Cake</h1></a>
+        </div>
+        <div>
+            <button id="meun" class="meun" value="off"></button><button id="log" class="log"></button>
+        </div>
+    </header>
+    <fieldset class="sign">
+    <legend>Login</legend>
+    <div class="enterbox">
+        <p>{{msg}}</p>
+    <form action="http://localhost:8000/enter" method="POST">
+        <p>Username<input type="text" name="username" id="user"></p>
+        <p>Password<input type="password" name="password" id="password"></p>
+        <p><input type="submit" value="login" id="sub" disabled></p>
+    </div>
+    </form>
+    <p>If you do not have acount , click<a href="./signup">Here</a> to creat a acount</p>
+    </fieldset>
+    
+    
+    <script>
+        $(document).ready(function(){
+            $("input").keyup(function(){
+                if( $('#user').val() == '' || $('#password').val() == ''){
+                    $("#sub").attr("disabled","disabled");}                    
+                else{
+                    $("#sub").removeAttr("disabled")
+                };               
+            })
+            
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="cakebooking" content="width=device-width, initial-scale=1.0">
+        <script src="../static/bootstrap.min.css"></script>
+        <script src="../static/bootstrap.bundle.min.js"></script>
+        <script src="../static/jquery.min.js"></script> 
+        <link rel= "stylesheet" href="../static/main.css">
+        <script src = "../static/main_js.js"></script>
+        <link rel= "stylesheet" href="../static/book.css">
+        <title>Special Cake</title>
+    </head>
+    <body>
+        
+        <header class="header">
+            <div>
+                <img src="../static/image/shoplogo.jpg" width="50px" height="50px">
+                <a href="./"><h1 class="logo">Special Cake</h1></a>
+            </div>
+            <div>
+                <button id="meun" class="meun" value="off"></button><a href="./login"><button id="log" class="log"></button></a>
+            </div>
+        </header>
+        <section class="menulist">
+            <ul>
+            <li ><a href="./#welcome" >Home</a></li>
+            <li><a href="./#About us">About Us</a></li>
+            <li><a href="./#product">Product</a></li>
+            <li><a href="./booking">Cake Booking</a></li>
+          </ul>
+        </section>
+        <section class="bookingpage">
+            <div id="Booking" class="bookfrom">
+            
+            <fieldset>
+                <legend>Customize cake</legend>
+                <form action = http://localhost:8000/payment method = "POST" enctype="multipart/form-data">
+                <p>size of the cake:
+                    <select name="size" id="size">
+                    <option value="6">6"</option>
+                    <option value="8">8"</option>
+                    <option value="10">10"</option>
+                    <option value="12">12"</option>
+                    <option value="14">14"</option>
+                    <option value="16">16"</option>
+                </select></p>
+                <p>
+                    type:
+                    <select name="type" id="type">
+                        <option value="Butter cake">Butter Cake</option>
+                        <option value="Pound cake">Pound Cake</option>
+                        <option value="Sponge cake">Sponge Cake</option>
+                        <option value="Genoise cake">Genoise Cake</option>
+                        <option value="Biscuit cake">Biscuit Cake</option>
+                        <option value="Angel Food cake">Angel Food Cake</option>
+                        <option value="Chiffon cake">Chiffon Cake</option>
+                        <option value="Baked Flourless cake">Baked Flourless Cake</option>
+                        <option value="Unbaked Flourless cake">Unbaked Flourless Cake</option>
+                        <option value="Carrot cake">Carrot Cake</option>
+                        <option value="Red Valvet cake">Red Velvet Cake</option>
+                        <option value="Mousse cake">Mousse Cake</option>
+                    </select>
+                </p>
+                <p>
+                    taste:<br>
+                    <span><label><input type="radio" name="taste" value="chocolate">chocolate</label></span>
+                    <span><label><input type="radio" name="taste" value="mango">mango</label></span>
+                    <span><label><input type="radio" name="taste" value="lenmo">lenmo</label></span>
+                    <span><label><input type="radio" name="taste" value="orange">orange</label></span>
+                    <span><label><input type="radio" name="taste" value="strawberry">strawberry</label></span>
+                </p>
+                <p>
+                    decorate:<br>
+                    <input type="checkbox" name="dec" value="chocolate borad" id="chocolate borad" >chocolate borad<input type="text" id="word" name="word" placeholder="word"><br>
+                    <input type="checkbox" name="dec" value="mango">mango
+                    <input type="checkbox" name="dec" value="orange">orange
+                    <input type="checkbox" name="dec" value="lenmo">lenmo
+                    <input type="checkbox" name="dec" value="strawberry">strawberry
+                </p>
+                <p>theme:<input type="text" name="theme" value="none"></p>
+                <p>
+                    design:<br>
+                    <input type="radio" name="design" value="Special Cake ">Special Cake design<br>
+                    <input type="radio" name="design" value="user" >upload own design<input type="file"  accept=".png,.jpg" name="df" />
+                </p>
+                <input type="submit" value="submit" >
+            </form>
+            </fieldset>
+            </div>
+            <div class="payment">
+            <fieldset>
+                <legend>Excepted payment</legend> 
+                <h3>basic:<span id="mbasic"></span></h3>
+                <p>size:<span id="sizechoice"></span></p>
+                <P>type:<span id="typechoice"></span></P>
+                <P>taste:<span id="tastechoice"></span></p>
+                    <hr />
+                <h3>decorate:<span id="otherm"></span></h3>
+                <P><span id="decChoice"></span></P>
+                <p><span id="designChoice"></span></p>
+                <hr />
+                <hr />
+                <h3>total:<span name="totalm" id="totalm"></span></h3> 
+                <button id="count" >count</button>        
+            </fieldset>
+            </div>
+        </section>
+    
+        <script>
+            var decorate = [];
+            var basic = 160;
+            var decoratem = 0;
+            var total = 0;
+            var designm = 0;
+            $(document).ready(function(){
+                $("#typechoice").text($("#type").val())
+                $("#sizechoice").text($("#size").val()+" inches")
+                $('#size').change(function(){
+                    $("#sizechoice").text($("#size").val()+" inches")
+                });
+                $('#type').change(function(){
+                    $("#typechoice").text($("#type").val())
+
+                });
+                $("input[name='taste']").on('change',function(){
+                    $("#tastechoice").text($("input[name='taste']:checked").val())
+                });
+                $("input[name='dec']").on("click",function(){
+                    var decorate = [];
+                    $("input[name='dec']:checked").each(function(){
+                        decorate.push($(this).val());
+                    });
+                    $('#decChoice').text(decorate.join(" ,"));
+                });
+                $("input[name='design']").on('change',function(){
+                    $("#designChoice").text($("input[name='design']:checked").val() + "design")
+                });
+                var meunshow = true;
+                $("#meun").click(function(){
+                    if(meunshow == true){
+                    $('.bookfrom').animate({left:'250px'});
+                    $('.payment').animate({left:'250px'});
+                        meunshow = false;}
+                    else{
+                    $('.bookfrom').animate({left:'0px'});
+                    $('.payment').animate({left:'0px'});
+                      meunshow = true;
+                }});
+                $("[href]").click(function(){
+                    $('.bookfrom').animate({left:'0px'});
+                    $('.payment').animate({left:'0px'});
+                    meunshow = true;
+                });
+                $("#count").click(function(){
+                    var basic = $("#size").val()*10 + 50;
+                    if ($("input[name='design']:checked").val() == "Special Cake"){
+                        var designm = 120
+                    }else{
+                        var designm = 100
+                    };
+                    var decorate = [];
+                    $("input[name='dec']:checked").each(function(){
+                        decorate.push($(this).val());
+                    });
+                    var decoratem = decorate.length*30 + designm;
+                    var total = basic + decoratem; 
+                    $("#mbasic").text("$"+basic);
+                    $("#otherm").text("$"+decoratem);
+                    $("#totalm").text("$"+total);
+                });
+            
+        });
+        </script>
+        </script>
+    </body>
+</html>

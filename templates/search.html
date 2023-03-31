@@ -1,0 +1,73 @@
+{% extends 'adlayout.html' %} 
+{% block body %}
+<section class="showcase">
+    <div class="page">
+       <hi>Search</hi>
+       <form action="http://localhost:8000/alllist" method="post">
+        <P>Type of information you want to search for:</P>
+        <p><span><input type="radio" name="searchtype" value="userin">user information</span>
+            <span><input type="radio" name="searchtype" value="orderlist">order list</span>
+            <span><input type="radio" name="searchtype" value="productlist">product list</span>
+        </p>
+        <P id="userin">
+            By:
+            <span><input type="radio" name="usertype" value="username">username</span>
+            <span><input type="radio" name="usertype" value="userNo">userNo</span>
+            Key:
+            <input type="text" name="usearchKey">
+        </P>
+        <P id="orderlist">
+            By:
+            <span><input type="radio" name="ordertype" value="date">date</span>
+            <span><input type="radio" name="ordertype" value="userNo">userNo</span>
+            Key:
+            <input type="date" id="day"  name="dayKey">
+            <input type="text" id="uNo" name="searchKey">
+        </P>
+        <P id="product">
+            By:
+            <span><input type="radio" name="producttype" value="productNo">productNo</span>
+            <span><input type="radio" name="producttype" value="ctype">ctype</span>
+            <span><input type="radio" name="producttype" value="taste">taste</span>
+            Key:
+            <input type="text" name="psearchKey">
+        </P>
+        <input type="submit" value="search">
+       </form>
+    </div>
+</section>
+<script>
+        $(document).ready(function(){
+            $("#userin").hide()
+            $("#product").hide()
+            $("#orderlist").hide()
+            $("input[name='searchtype']").on('change',function(){
+                if ($("input[name='searchtype']:checked").val() == "userin"){
+                    $("#userin").show()
+                    $("#product").hide()
+                    $("#orderlist").hide() 
+                }else if ($("input[name='searchtype']:checked").val() == "productlist"){
+                    $("#userin").hide()
+                    $("#product").show()
+                    $("#orderlist").hide() 
+                }else if($("input[name='searchtype']:checked").val() == "orderlist"){
+                    $("#userin").hide()
+                    $("#product").hide()
+                    $("#orderlist").show()
+                    $("#uNo").hide()
+                    $("#day").hide()
+                };
+                
+                
+            });  
+            $("input[name='ordertype']").on('change',function(){
+                if ($("input[name='ordertype']:checked").val() == "date"){
+                    $("#uNo").hide()
+                                    $("#day").show()
+                                }else if ($("input[name='ordertype']:checked").val() == "userNo"){
+                                    $("#uNo").show()
+                                    $("#day").hide()
+           }; })        
+        });
+</script>
+{%endblock%}

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content"IE=edge">
+    <meta naame="viewport" content="width=device-width,initial-scale=1.0">
+    <script src="../static/jquery.min.js"></script> 
+    <link rel= "stylesheet" href="../static/main.css">
+    <title>Sign UP</title>
+</head>
+<body>
+    <header class="header">
+        <div>
+            <img src="../static/image/shoplogo.jpg" width="50px" height="50px">
+            <a href="./"><h1 class="logo">Special Cake</h1></a>
+        </div>
+    </header>
+    <fieldset class="sign">
+    <legend>SignUP</legend>
+    <div class="enterbox">
+    <form action="http://localhost:8000/insertDB" method="POST">
+        <p>Username<input type="text" name="username" id="user"></p>
+        <p>Password<input type="password" name="password" id="1"></p>
+        <p>enter the password aagin:<input type="password" id="2nd"></p>
+        <p>Telephone:<input type="tel" name="tele" id="tele"></p>
+        <p>Email:<input type="email" name="email" id="email"></p>
+        <p>Address:<input type="text" name="address" id="address"></p>
+        <p><input type="submit" value="submit" id="sub" disabled></p>
+    </form>
+    <p>
+        If you have a acount click <a href="./login">here</a> to login.    
+    </p>
+    </div>
+    </fieldset>
+    
+    <script>
+        $(document).ready(function(){
+            $("input").keyup(function(){
+                if( $('#2nd').val() != $("#1").val() || $('#user').val() == '' || $('#1').val() == '' || $('#tele').val() == '' || $('#email').val() == ''|| $('#address').val() == ''){
+                    $("#sub").attr("disabled","disabled");}                    
+                else{
+                    $("#sub").removeAttr("disabled")
+                };               
+            })
+        });
+    </script>
+</body>
+</html>
